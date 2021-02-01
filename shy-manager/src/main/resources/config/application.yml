@@ -1,3 +1,5 @@
+server:
+  port: 17790
 spring:
   profiles:
     active:

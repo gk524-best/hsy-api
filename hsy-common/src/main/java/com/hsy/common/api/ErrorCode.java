@@ -10,5 +10,5 @@ public interface ErrorCode {
 
     String getMessage();
 
-    Integer getCode
+    Integer getCode();
 }
