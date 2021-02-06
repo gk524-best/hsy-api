@@ -9,4 +9,5 @@ import com.hsy.manager.entity.User;
  * @Date: Created in 2021/2/4 18:45
  */
 public interface UserMapper extends BaseMapper<User> {
+    int insert(User user);
 }
