@@ -1,3 +1,5 @@
+server:
+  port: 17790
 spring:
   profiles:
     active:
@@ -6,8 +8,11 @@ spring:
     port: 6379
     password:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/hsy_admin
+    url: jdbc:mysql://127.0.0.1:3306/hsy_admin?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
