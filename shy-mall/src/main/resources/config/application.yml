@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active:
+  datasource:
+    url: jdbc:mysql://192.168.31.165:3306/hsy_mall?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Root_123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

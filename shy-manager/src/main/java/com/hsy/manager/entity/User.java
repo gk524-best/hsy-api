@@ -2,30 +2,11 @@ package com.hsy.manager.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-<<<<<<< HEAD
-
-import java.util.Date;
-
-/**
- * TODO
- *
- * @author zhangbingbing
- * @date 2021/1/31 上午12:09
- */
-public class User {
-    
-    @TableId(type = IdType.AUTO)
-    private Integer id;
-    private String  username;
-    private String  password;
-    private Date    createTime;
-    private Date    updateTime;
-=======
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -40,9 +21,11 @@ public class User {
     private Integer id;
 
     @ApiModelProperty(value = "用户名")
+    @NotBlank(message = "用户名不能为空")
     private String  username;
 
     @ApiModelProperty(value = "密码")
+    @NotBlank(message = "密码不能为空")
     private String  password;
 
     @ApiModelProperty(value = "创建时间")
@@ -103,5 +86,4 @@ public class User {
                 ", updateTime=" + updateTime +
                 '}';
     }
->>>>>>> 8cdacca9d7f0088acb190ff833a6610f889245d1
 }

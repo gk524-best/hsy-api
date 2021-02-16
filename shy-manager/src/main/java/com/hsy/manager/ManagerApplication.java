@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 后台启动类
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.hsy.manager","com.hsy.common"})
 @MapperScan("com.hsy.manager.mapper")
 public class ManagerApplication {
     public static void main(String[] args) {
