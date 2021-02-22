@@ -16,7 +16,8 @@ public enum ApiCode implements ErrorCode {
     ACCOUNT_REGISTERED(false, 1003, "账号已注册"),
     LOGIN_ERROR(false, 1004, "用户名或密码错误"),
     VALIDATE_FAILED(false, 1005, "参数校验失败"),
-    PARAM_ERROR(false, 1006, "参数有误");
+    PARAM_ERROR(false, 1006, "参数有误"),
+    OPERATION_FAILED(false, 1007, "操作失败, 请重试!");
 
 
     private final Boolean status;

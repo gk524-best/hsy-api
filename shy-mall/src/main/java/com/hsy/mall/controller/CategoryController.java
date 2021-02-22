@@ -1,14 +1,13 @@
 package com.hsy.mall.controller;
 
+import com.hsy.common.api.ApiCode;
+import com.hsy.common.api.R;
 import com.hsy.mall.entry.Category;
 import com.hsy.mall.service.CategoryService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 商品分类
@@ -22,9 +21,28 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping(value = "/mall/category/add", method = RequestMethod.POST)
-    public void storeMallCategory(@Validated @RequestBody Category category) {
-        int count = categoryService.storeCategory(category);
-        System.out.println(count);
+    /**
+     * 商品分类添加
+     * @author gk
+     * @date 2021/2/22 11:04
+     */
+    @RequestMapping(value = "/category/add", method = RequestMethod.POST)
+    public R<Object> storeMallCategory(@Validated @RequestBody Category category) {
+        categoryService.storeCategory(category);
+        return R.ok();
+    }
+
+    /**
+     * 商品分类删除
+     * @author gk
+     * @date 2021/2/22 19:30
+     */
+    @RequestMapping(value = "/category/{id}", method = RequestMethod.DELETE)
+    public R<Object> removeCategoryById(@PathVariable Integer id) {
+        boolean delStatus = categoryService.delCategoryById(id);
+        if (delStatus) {
+            return R.ok();
+        }
+        return R.fail(ApiCode.OPERATION_FAILED);
     }
 }
