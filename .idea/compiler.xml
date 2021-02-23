@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="shy-manager" />
         <module name="hsy-common" />
         <module name="shy-mall" />
+        <module name="shy-manager" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

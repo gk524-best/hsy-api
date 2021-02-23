@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 /**
  * 商品分类
  * @author gk
@@ -28,6 +30,9 @@ public class CategoryController {
      */
     @RequestMapping(value = "/category/add", method = RequestMethod.POST)
     public R<Object> storeMallCategory(@Validated @RequestBody Category category) {
+        category.setCreateTime(new Date());
+        category.setUpdateTime(new Date());
+        category.setSort(0);
         categoryService.storeCategory(category);
         return R.ok();
     }
