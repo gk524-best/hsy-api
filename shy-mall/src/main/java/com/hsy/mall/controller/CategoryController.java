@@ -1,5 +1,6 @@
 package com.hsy.mall.controller;
 
+import com.github.pagehelper.util.StringUtil;
 import com.hsy.common.api.ApiCode;
 import com.hsy.common.api.R;
 import com.hsy.mall.entry.Category;
@@ -24,18 +25,30 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * 商品分类添加
-     * @author gk
-     * @date 2021/2/22 11:04
-     */
+    　* 商品分类添加
+    　* @author gk on 2021/2/24 下午11:34
+    　*/
     @RequestMapping(value = "/category/add", method = RequestMethod.POST)
     public R<Object> storeMallCategory(@Validated @RequestBody Category category) {
         category.setCreateTime(new Date());
         category.setUpdateTime(new Date());
         category.setSort(0);
-        categoryService.storeCategory(category);
-        return R.ok();
+        if (category.getPid() == null) {
+            category.setCategoryLevel(0);
+        } else {
+            Category cg = categoryService.getCategoryById(category.getPid());
+            category.setCategoryLevel(cg.getCategoryLevel() + 1);
+        }
+        boolean isRepeat = categoryService.checkCategoryNameRepeat(category.getCategoryName());
+        if (isRepeat) {
+            return R.fail(ApiCode.DATE_REPEAT, "商品名称不能重复！");
+        } else {
+            categoryService.storeCategory(category);
+            return R.ok();
+        }
     }
+
+
 
     /**
      * 商品分类删除
