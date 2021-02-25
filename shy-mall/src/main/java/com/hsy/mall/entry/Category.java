@@ -1,8 +1,10 @@
 package com.hsy.mall.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.hsy.common.utils.ValidationGroup;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +14,7 @@ import java.util.Date;
 @TableName(value = "category")
 public class Category {
     @TableId(type = IdType.AUTO)
+    @NotBlank(message = "id不能为空", groups = ValidationGroup.Update.class)
     private Integer id;
 
     @ApiModelProperty(value = "分类名称")
@@ -19,7 +22,8 @@ public class Category {
     private String categoryName;
 
     @ApiModelProperty(value = "父id")
-    private Integer parentId;
+    @TableField(value = "p_id")
+    private Integer pid;
 
     @ApiModelProperty(value = "类型Logo")
     private String categoryLogo;
@@ -28,8 +32,7 @@ public class Category {
     private String description;
 
     @ApiModelProperty(value = "分类等级")
-    @NotBlank(message = "分类等级不能为空")
-    private String categoryLevel;
+    private Integer categoryLevel;
 
     @ApiModelProperty(value = "同等级分类排序 越大越靠前")
     private Integer sort;
@@ -56,19 +59,19 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public Integer getParentId() {
-        return parentId;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
-    public String getCategoryLevel() {
+    public Integer getCategoryLevel() {
         return categoryLevel;
     }
 
-    public void setCategoryLevel(String categoryLevel) {
+    public void setCategoryLevel(Integer categoryLevel) {
         this.categoryLevel = categoryLevel;
     }
 
@@ -117,10 +120,10 @@ public class Category {
         return "Category{" +
                 "id=" + id +
                 ", categoryName='" + categoryName + '\'' +
-                ", parentId=" + parentId +
+                ", pid=" + pid +
                 ", categoryLogo='" + categoryLogo + '\'' +
                 ", description='" + description + '\'' +
-                ", categoryLevel='" + categoryLevel + '\'' +
+                ", categoryLevel=" + categoryLevel +
                 ", sort=" + sort +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
