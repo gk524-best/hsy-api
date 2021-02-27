@@ -1,18 +1,19 @@
 package com.hsy.mall.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.hsy.common.utils.PageBase;
 import com.hsy.mall.entry.Banner;
 import com.hsy.mall.mapper.BannerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * TODO
  *
  * @author gk on 2021/2/2517:29
  */
+@Service
 public class BannerService {
 
     @Autowired
@@ -47,8 +48,12 @@ public class BannerService {
         return count > 0;
     }
 
-//    public List<Banner> QueryBannersList() {
-//        QueryWrapper<Banner> wrapper = Wrappers.query();
-//        wrapper.select(Banner.class);
-//    }
+    public PageBase<Banner> queryBannersList(Integer current, Integer size) {
+        PageBase<Banner> pageBase = new PageBase<>();
+        IPage<Banner> page = new Page<>(current, size);
+        bannerMapper.selectPage(page, null);
+        pageBase.setTotal(page.getTotal());
+        pageBase.setRows(page.getRecords());
+        return pageBase;
+    }
 }

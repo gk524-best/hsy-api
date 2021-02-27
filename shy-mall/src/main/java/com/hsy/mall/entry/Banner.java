@@ -2,21 +2,21 @@ package com.hsy.mall.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.hsy.common.utils.ValidationGroup;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
- * TODO
- *
- * @author DELL
- * @date 2021/2/2517:15
- */
+　*
+　* @author gk on 2021/2/28 上午12:35
+　*/
+@TableName(value = "banner")
 public class Banner {
     @TableId(type = IdType.AUTO)
-    @NotBlank(message = "id不能为空", groups = ValidationGroup.Update.class)
     private Integer id;
 
     @NotBlank(message = "banner名称不能为空")

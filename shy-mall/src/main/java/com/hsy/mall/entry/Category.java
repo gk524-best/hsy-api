@@ -14,7 +14,6 @@ import java.util.Date;
 @TableName(value = "category")
 public class Category {
     @TableId(type = IdType.AUTO)
-    @NotBlank(message = "id不能为空", groups = ValidationGroup.Update.class)
     private Integer id;
 
     @ApiModelProperty(value = "分类名称")
