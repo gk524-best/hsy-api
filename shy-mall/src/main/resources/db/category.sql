@@ -8,5 +8,6 @@ CREATE TABLE `category` (
 	`sort` SMALLINT DEFAULT NULL COMMENT '同等级排序, 值越大越靠前',
 	`create_time` DATETIME DEFAULT NULL COMMENT '创建时间',
 	`update_time` DATETIME DEFAULT NULL COMMENT '更新时间',
-	PRIMARY KEY (`id`)
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `category_name` (`category_name`)
 ) ENGINE=INNODB DEFAULT charset=utf8 COMMENT="商品分类";

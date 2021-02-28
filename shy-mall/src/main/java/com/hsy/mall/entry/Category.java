@@ -24,7 +24,7 @@ public class Category {
     @TableField(value = "p_id")
     private Integer pid;
 
-    @ApiModelProperty(value = "类型Logo")
+    @ApiModelProperty(value = "分类Logo")
     private String categoryLogo;
 
     @ApiModelProperty(value = "描述")

@@ -1,4 +1,4 @@
-package com.hsy.manager.config;
+package com.hsy.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,14 +10,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 /**
- * @Description:
- * @Author: gk
- * @Date: Created in 2021/1/31 11:11
+ * Swagger
+ * @author gk on 2021/2/28 11:42
  */
 @Configuration
 @EnableSwagger2WebMvc
 public class Knife4jConfiguration {
-
     @Bean(value = "defaultApi2")
     public Docket defaultApi2() {
         Docket docket = new Docket(DocumentationType.SWAGGER_2)

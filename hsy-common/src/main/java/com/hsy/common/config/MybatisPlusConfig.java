@@ -8,10 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * TODO
- *
- * @author zhangbingbing
- * @date 2021/2/28 上午1:24
+ * Mybatis-plus 分页
+ * @author zhangbingbing on 2021/2/28 上午1:24
  */
 @Configuration
 @MapperScan(value = "com.hsy.*.mapper")

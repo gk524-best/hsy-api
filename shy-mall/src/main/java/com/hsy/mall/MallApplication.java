@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * TODO
- * @author zhangbingbing
- * @date 2021/2/16 下午6:54
+ * @author zhangbingbing on 2021/2/16 下午6:54
  */
 @SpringBootApplication(scanBasePackages = {"com.hsy.mall", "com.hsy.common"})
 @MapperScan("com.hsy.mall.mapper")
