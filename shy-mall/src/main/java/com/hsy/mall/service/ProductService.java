@@ -1,5 +1,8 @@
 package com.hsy.mall.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.hsy.common.utils.PageBase;
 import com.hsy.mall.entry.Product;
 import com.hsy.mall.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +48,21 @@ public class ProductService {
     public boolean delProduct(int id) {
         int count = productMapper.deleteById(id);
         return count > 0;
+    }
+
+    /**
+    　*
+    　* @author gk on 2021/3/2 下午10:11
+    　* @param current 当前页
+    　* @param size    每页数量
+    　* @return ${return_type}
+    　*/
+    public PageBase<Product> queryProducts(Integer current, Integer size) {
+        PageBase<Product> pageBase = new PageBase<>();
+        IPage<Product> page = new Page<>(current, size);
+        productMapper.selectPage(page, null);
+        pageBase.setTotal(page.getTotal());
+        pageBase.setRows(page.getRecords());
+        return pageBase;
     }
 }

@@ -2,16 +2,15 @@ package com.hsy.mall.controller;
 
 import com.hsy.common.api.ApiCode;
 import com.hsy.common.api.R;
+import com.hsy.common.utils.PageBase;
+import com.hsy.mall.entry.Banner;
 import com.hsy.mall.entry.Product;
 import com.hsy.mall.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -73,5 +72,17 @@ public class ProductController {
         } else {
             return R.fail(ApiCode.OPERATION_FAILED);
         }
+    }
+
+    /**
+    　* 商品分页查询
+    　* @author gk on 2021/3/2 下午10:14
+    　*/
+    @ApiOperation(value = "商品查询")
+    @RequestMapping(value = "/product", method= RequestMethod.GET)
+    public R<Object> paginationProduct(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                       @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        PageBase<Product> pageBase = productService.queryProducts(page, size);
+        return R.ok(pageBase);
     }
 }
