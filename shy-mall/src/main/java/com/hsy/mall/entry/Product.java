@@ -1,6 +1,7 @@
 package com.hsy.mall.entry;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,6 +22,9 @@ public class Product {
     @ApiModelProperty(value = "分类ID")
     @NotBlank(message = "商品分类不能为空")
     private Integer categoryId;
+
+    @TableField(exist = false)
+    private Category category;
 
     @ApiModelProperty(value = "商品名称")
     @NotBlank(message = "商品名称不能为空")
