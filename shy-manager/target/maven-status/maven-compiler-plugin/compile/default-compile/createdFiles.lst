@@ -1,0 +1,6 @@
+com\hsy\manager\ManagerApplication.class
+com\hsy\manager\service\UserService.class
+com\hsy\manager\util\JwtUtil.class
+com\hsy\manager\mapper\UserMapper.class
+com\hsy\manager\entity\User.class
+com\hsy\manager\controller\UserController.class

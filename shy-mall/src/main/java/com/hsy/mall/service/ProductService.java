@@ -60,7 +60,10 @@ public class ProductService {
     public PageBase<Product> queryProducts(Integer current, Integer size) {
         PageBase<Product> pageBase = new PageBase<>();
         IPage<Product> page = new Page<>(current, size);
-        productMapper.selectPage(page, null);
+        productMapper.getProductList(page);
+        System.out.println(page);
+
+//        productMapper.selectPage(page, null);
         pageBase.setTotal(page.getTotal());
         pageBase.setRows(page.getRecords());
         return pageBase;

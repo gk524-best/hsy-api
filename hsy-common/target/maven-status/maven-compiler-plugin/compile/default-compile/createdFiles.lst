@@ -1,0 +1,12 @@
+com\hsy\common\api\ApiCode.class
+com\hsy\common\utils\ValidationGroup$Delete.class
+com\hsy\common\config\Knife4jConfiguration.class
+com\hsy\common\utils\PageBase.class
+com\hsy\common\handler\GlobalExceptionHandler.class
+com\hsy\common\utils\ValidationGroup$Query.class
+com\hsy\common\utils\ValidationGroup$Create.class
+com\hsy\common\utils\ValidationGroup.class
+com\hsy\common\config\MybatisPlusConfig.class
+com\hsy\common\api\ErrorCode.class
+com\hsy\common\api\R.class
+com\hsy\common\utils\ValidationGroup$Update.class

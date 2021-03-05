@@ -19,7 +19,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.2.RELEASE</version>
+        <version>2.4.3</version>
+        <relativePath/>
     </parent>
 
     <properties>
@@ -42,13 +43,13 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--Mybatis Plus-->
+            <!--Mybatis Plus 依赖mybatis 3.5.6-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-            <!--pageHelper 分页依赖-->
+            <!--pageHelper 分页依赖 依赖mybatis 3.5.1-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -72,7 +73,7 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-            <!--druid 连接池-->
+            <!--druid 连接池 依赖mybatis 3.4.0-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
