@@ -61,9 +61,7 @@ public class ProductService {
         PageBase<Product> pageBase = new PageBase<>();
         IPage<Product> page = new Page<>(current, size);
         productMapper.getProductList(page);
-        System.out.println(page);
-
-//        productMapper.selectPage(page, null);
+        System.out.println(page.getRecords());
         pageBase.setTotal(page.getTotal());
         pageBase.setRows(page.getRecords());
         return pageBase;

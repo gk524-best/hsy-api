@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ public class Product {
     private Integer id;
 
     @ApiModelProperty(value = "分类ID")
-    @NotBlank(message = "商品分类不能为空")
+    @NotNull(message = "商品分类不能为空")
     private Integer categoryId;
 
     @TableField(exist = false)
@@ -43,11 +44,11 @@ public class Product {
     private String detail;
 
     @ApiModelProperty(value = "商品价格")
-    @NotBlank(message = "商品价格不能为空")
+    @NotNull(message = "商品价格不能为空")
     private Float price;
 
     @ApiModelProperty(value = "库存")
-    @NotBlank(message = "商品库存不能为空")
+    @NotNull(message = "商品库存不能为空")
     private Integer stock;
 
     @ApiModelProperty(value = "状态")
@@ -155,6 +156,14 @@ public class Product {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     @Override

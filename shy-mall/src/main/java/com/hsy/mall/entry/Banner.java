@@ -16,6 +16,7 @@ import java.util.Date;
 　*/
 @TableName(value = "banner")
 public class Banner {
+
     @TableId(type = IdType.AUTO)
     private Integer id;
 

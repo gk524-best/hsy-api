@@ -31,7 +31,7 @@ public class ProductController {
      */
     @ApiOperation(value = "新增商品")
     @RequestMapping(value = "/product/add", method = RequestMethod.POST)
-    public R<Object> storeProduct(@Validated Product product) {
+    public R<Object> storeProduct(@Validated @RequestBody Product product) {
         product.setCreateTime(new Date());
         product.setUpdateTime(new Date());
         boolean state = productService.storeProduct(product);
@@ -48,7 +48,7 @@ public class ProductController {
      */
     @ApiOperation(value = "编辑商品")
     @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT)
-    public R<Object> editProduct(@Validated int id, Product product) {
+    public R<Object> editProduct(@Validated @RequestBody int id, Product product) {
         product.setUpdateTime(new Date());
         product.setId(id);
         boolean state = productService.editProduct(product);
