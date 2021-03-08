@@ -6,11 +6,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.hsy.mall.entry.vo.CategoryVo;
 import io.swagger.annotations.ApiModelProperty;
+import org.apache.ibatis.type.Alias;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Map;
 
 /**
  *
@@ -26,7 +28,7 @@ public class Product {
     private Integer categoryId;
 
     @TableField(exist = false)
-    private CategoryVo categoryVo;
+    private Map<String, Object> category;
 
     @ApiModelProperty(value = "商品名称")
     @NotBlank(message = "商品名称不能为空")
@@ -159,12 +161,12 @@ public class Product {
         this.updateTime = updateTime;
     }
 
-    public void setCategoryVo(CategoryVo categoryVo) {
-        this.categoryVo = categoryVo;
+    public void setCategory(Map<String, Object> category) {
+        this.category = category;
     }
 
-    public CategoryVo getCategoryVo() {
-        return categoryVo;
+    public Map<String, Object> getCategory () {
+        return category;
     }
 
 //    @Override

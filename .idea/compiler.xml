@@ -13,6 +13,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hsy-manager" target="1.8" />
+      <module name="shy-mall" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

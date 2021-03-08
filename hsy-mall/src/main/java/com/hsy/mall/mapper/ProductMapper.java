@@ -21,7 +21,7 @@ public interface ProductMapper extends BaseMapper<Product> {
     @Select("SELECT * FROM product")
     @Results({
             @Result(property = "categoryId", column = "category_id"),
-           @Result(property = "categoryVo", column = "category_id", one = @One(select = "com.hsy.mall.mapper.CategoryMapper.getCategoryById"))
+           @Result(property = "category", column = "category_id", one = @One(select = "com.hsy.mall.mapper.CategoryMapper.getCategoryById"))
     })
     IPage<Product> getProductList(IPage<Product> page);
 }
