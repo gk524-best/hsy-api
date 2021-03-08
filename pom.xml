@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hsy</groupId>
-    <artifactId>shy</artifactId>
+    <artifactId>hsy</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>hsy-common</module>
-        <module>shy-manager</module>
-        <module>shy-mall</module>
+        <module>hsy-mall</module>
+        <module>hsy-manager</module>
     </modules>
 
     <packaging>pom</packaging>

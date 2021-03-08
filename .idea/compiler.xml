@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hsy-common" />
-        <module name="shy-mall" />
         <module name="shy-manager" />
+        <module name="hsy-mall" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,7 +18,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="hsy-common" options="-parameters" />
-      <module name="shy-mall" options="-parameters" />
+      <module name="hsy-mall" options="-parameters" />
+      <module name="hsy-manager" options="-parameters" />
       <module name="shy-manager" options="-parameters" />
     </option>
   </component>
